@@ -1,0 +1,363 @@
+{
+	"id": "3a3f056f-32a6-4a23-b485-a8b24e00f183",
+	"name": "https://fakestoreapi",
+	"timestamp": "2025-01-23T07:24:06.749Z",
+	"collection_id": "31107922-79624276-980d-4d8a-8c55-55f6b47530b9",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 36,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-01-23T07:24:03.602Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "98b1c2f0-90aa-4d02-b0ef-e175e03d691c",
+			"name": "TS1 | 📜{API} | Productos | Validar  todas las categorias",
+			"url": "https://fakestoreapi.com/products/category/electronics",
+			"time": 777,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Estado de la respuesta es 200": true,
+				"El cuerpo de la respuesta es un array no vacío": true,
+				"Cada producto tiene los campos obligatorios": true,
+				"Cada producto tiene rating válido (rate y count)": true
+			},
+			"testPassFailCounts": {
+				"Estado de la respuesta es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"El cuerpo de la respuesta es un array no vacío": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Cada producto tiene los campos obligatorios": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Cada producto tiene rating válido (rate y count)": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				777
+			],
+			"allTests": [
+				{
+					"Estado de la respuesta es 200": true,
+					"El cuerpo de la respuesta es un array no vacío": true,
+					"Cada producto tiene los campos obligatorios": true,
+					"Cada producto tiene rating válido (rate y count)": true
+				}
+			]
+		},
+		{
+			"id": "039252ea-8590-4130-8b0d-e4b8f720f82c",
+			"name": "TS2| 📜{API} | Productos | Consultar  los datos de un producto en específico”.",
+			"url": "https://fakestoreapi.com/products/7",
+			"time": 280,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Estado de la respuesta es 200": true,
+				"El producto tiene los campos obligatorios": true,
+				"La categoría es 'jewelery'": true
+			},
+			"testPassFailCounts": {
+				"Estado de la respuesta es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"El producto tiene los campos obligatorios": {
+					"pass": 1,
+					"fail": 0
+				},
+				"La categoría es 'jewelery'": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				280
+			],
+			"allTests": [
+				{
+					"Estado de la respuesta es 200": true,
+					"El producto tiene los campos obligatorios": true,
+					"La categoría es 'jewelery'": true
+				}
+			]
+		},
+		{
+			"id": "e04c18ce-0e77-4df9-b1df-53bebcb5b884",
+			"name": "TS1 | 📜{API} | Productos | Crear un producto",
+			"url": "https://fakestoreapi.com/products",
+			"time": 211,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Estado de la respuesta es 200": true,
+				"La respuesta contiene los datos correctos": true,
+				"Campos obligatorios están presentes": true
+			},
+			"testPassFailCounts": {
+				"Estado de la respuesta es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"La respuesta contiene los datos correctos": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Campos obligatorios están presentes": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				211
+			],
+			"allTests": [
+				{
+					"Estado de la respuesta es 200": true,
+					"La respuesta contiene los datos correctos": true,
+					"Campos obligatorios están presentes": true
+				}
+			]
+		},
+		{
+			"id": "a00f798a-d0ef-4bed-bb7c-34e42efe31f8",
+			"name": "TS1 | 📜{API} | Productos | Actualizar la imagen de un producto",
+			"url": "https://fakestoreapi.com/products/21",
+			"time": 212,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Estado de la respuesta es 200": true,
+				"La imagen se ha actualizado correctamente": true
+			},
+			"testPassFailCounts": {
+				"Estado de la respuesta es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"La imagen se ha actualizado correctamente": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				212
+			],
+			"allTests": [
+				{
+					"Estado de la respuesta es 200": true,
+					"La imagen se ha actualizado correctamente": true
+				}
+			]
+		},
+		{
+			"id": "38deb3ed-9007-40c7-876b-b0b86e73934d",
+			"name": "TS1 | 📜{API} | Productos | Eliminar varios  productos",
+			"url": "https://fakestoreapi.com/products/",
+			"time": 233,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Estado de la respuesta para eliminar el producto con id 2 es 200": true,
+				"La respuesta de eliminar el producto con id 2 contiene el estado correcto": true,
+				"Estado de la respuesta para eliminar el producto con id 9 es 200": true,
+				"La respuesta de eliminar el producto con id 9 contiene el estado correcto": true,
+				"Estado de la respuesta para eliminar el producto con id 16 es 200": true,
+				"La respuesta de eliminar el producto con id 16 contiene el estado correcto": true,
+				"Estado de la respuesta para eliminar el producto con id 8 es 200": true,
+				"La respuesta de eliminar el producto con id 8 contiene el estado correcto": true,
+				"Estado de la respuesta para eliminar el producto con id 7 es 200": true,
+				"La respuesta de eliminar el producto con id 7 contiene el estado correcto": true,
+				"Estado de la respuesta para eliminar el producto con id 19 es 200": true,
+				"La respuesta de eliminar el producto con id 19 contiene el estado correcto": true,
+				"Estado de la respuesta para eliminar el producto con id 18 es 200": true,
+				"La respuesta de eliminar el producto con id 18 contiene el estado correcto": true,
+				"Estado de la respuesta para eliminar el producto con id 20 es 200": true,
+				"La respuesta de eliminar el producto con id 20 contiene el estado correcto": true,
+				"Estado de la respuesta para eliminar el producto con id 3 es 200": true,
+				"La respuesta de eliminar el producto con id 3 contiene el estado correcto": true,
+				"Estado de la respuesta para eliminar el producto con id 4 es 200": true,
+				"La respuesta de eliminar el producto con id 4 contiene el estado correcto": true,
+				"Estado de la respuesta para eliminar el producto con id 15 es 200": true,
+				"La respuesta de eliminar el producto con id 15 contiene el estado correcto": true,
+				"Estado de la respuesta para eliminar el producto con id 17 es 200": true,
+				"La respuesta de eliminar el producto con id 17 contiene el estado correcto": true
+			},
+			"testPassFailCounts": {
+				"Estado de la respuesta para eliminar el producto con id 2 es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"La respuesta de eliminar el producto con id 2 contiene el estado correcto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Estado de la respuesta para eliminar el producto con id 9 es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"La respuesta de eliminar el producto con id 9 contiene el estado correcto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Estado de la respuesta para eliminar el producto con id 16 es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"La respuesta de eliminar el producto con id 16 contiene el estado correcto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Estado de la respuesta para eliminar el producto con id 8 es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"La respuesta de eliminar el producto con id 8 contiene el estado correcto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Estado de la respuesta para eliminar el producto con id 7 es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"La respuesta de eliminar el producto con id 7 contiene el estado correcto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Estado de la respuesta para eliminar el producto con id 19 es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"La respuesta de eliminar el producto con id 19 contiene el estado correcto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Estado de la respuesta para eliminar el producto con id 18 es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"La respuesta de eliminar el producto con id 18 contiene el estado correcto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Estado de la respuesta para eliminar el producto con id 20 es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"La respuesta de eliminar el producto con id 20 contiene el estado correcto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Estado de la respuesta para eliminar el producto con id 3 es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"La respuesta de eliminar el producto con id 3 contiene el estado correcto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Estado de la respuesta para eliminar el producto con id 4 es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"La respuesta de eliminar el producto con id 4 contiene el estado correcto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Estado de la respuesta para eliminar el producto con id 15 es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"La respuesta de eliminar el producto con id 15 contiene el estado correcto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Estado de la respuesta para eliminar el producto con id 17 es 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"La respuesta de eliminar el producto con id 17 contiene el estado correcto": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				233
+			],
+			"allTests": [
+				{
+					"Estado de la respuesta para eliminar el producto con id 2 es 200": true,
+					"La respuesta de eliminar el producto con id 2 contiene el estado correcto": true,
+					"Estado de la respuesta para eliminar el producto con id 9 es 200": true,
+					"La respuesta de eliminar el producto con id 9 contiene el estado correcto": true,
+					"Estado de la respuesta para eliminar el producto con id 16 es 200": true,
+					"La respuesta de eliminar el producto con id 16 contiene el estado correcto": true,
+					"Estado de la respuesta para eliminar el producto con id 8 es 200": true,
+					"La respuesta de eliminar el producto con id 8 contiene el estado correcto": true,
+					"Estado de la respuesta para eliminar el producto con id 7 es 200": true,
+					"La respuesta de eliminar el producto con id 7 contiene el estado correcto": true,
+					"Estado de la respuesta para eliminar el producto con id 19 es 200": true,
+					"La respuesta de eliminar el producto con id 19 contiene el estado correcto": true,
+					"Estado de la respuesta para eliminar el producto con id 18 es 200": true,
+					"La respuesta de eliminar el producto con id 18 contiene el estado correcto": true,
+					"Estado de la respuesta para eliminar el producto con id 20 es 200": true,
+					"La respuesta de eliminar el producto con id 20 contiene el estado correcto": true,
+					"Estado de la respuesta para eliminar el producto con id 3 es 200": true,
+					"La respuesta de eliminar el producto con id 3 contiene el estado correcto": true,
+					"Estado de la respuesta para eliminar el producto con id 4 es 200": true,
+					"La respuesta de eliminar el producto con id 4 contiene el estado correcto": true,
+					"Estado de la respuesta para eliminar el producto con id 15 es 200": true,
+					"La respuesta de eliminar el producto con id 15 contiene el estado correcto": true,
+					"Estado de la respuesta para eliminar el producto con id 17 es 200": true,
+					"La respuesta de eliminar el producto con id 17 contiene el estado correcto": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1713,
+	"collection": {
+		"requests": [
+			{
+				"id": "98b1c2f0-90aa-4d02-b0ef-e175e03d691c",
+				"method": "GET"
+			},
+			{
+				"id": "039252ea-8590-4130-8b0d-e4b8f720f82c",
+				"method": "GET"
+			},
+			{
+				"id": "e04c18ce-0e77-4df9-b1df-53bebcb5b884",
+				"method": "POST"
+			},
+			{
+				"id": "a00f798a-d0ef-4bed-bb7c-34e42efe31f8",
+				"method": "PATCH"
+			},
+			{
+				"id": "38deb3ed-9007-40c7-876b-b0b86e73934d",
+				"method": "GET"
+			}
+		]
+	}
+}

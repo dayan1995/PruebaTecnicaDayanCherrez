@@ -1,0 +1,316 @@
+{
+	"info": {
+		"_postman_id": "79624276-980d-4d8a-8c55-55f6b47530b9",
+		"name": "https://fakestoreapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "31107922",
+		"_collection_link": "https://prueba-tecnica-5981.postman.co/workspace/Prueba-Tecnica-Workspace~5b597637-71c9-453a-8503-3f9ef9629cc6/collection/31107922-79624276-980d-4d8a-8c55-55f6b47530b9?action=share&source=collection_link&creator=31107922"
+	},
+	"item": [
+		{
+			"name": "📜{API}  | Ejercicio práctico: API Testing",
+			"item": [
+				{
+					"name": "TS1 | 📜{API} | Consultar todas las categoría de “electronics”.",
+					"item": [
+						{
+							"name": "TS1 | 📜{API} | Productos | Validar  todas las categorias",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Validar que el estado de la respuesta sea 200 OK",
+											"pm.test(\"Estado de la respuesta es 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"// Validar que el cuerpo de la respuesta sea un array no vacío",
+											"pm.test(\"El cuerpo de la respuesta es un array no vacío\", function () {",
+											"    const jsonData = pm.response.json();",
+											"    pm.expect(jsonData).to.be.an(\"array\");",
+											"    pm.expect(jsonData.length).to.be.above(0);",
+											"});",
+											"",
+											"// Validar que cada producto tenga los campos obligatorios",
+											"pm.test(\"Cada producto tiene los campos obligatorios\", function () {",
+											"    const jsonData = pm.response.json();",
+											"    jsonData.forEach(product => {",
+											"        pm.expect(product).to.have.property(\"id\");",
+											"        pm.expect(product).to.have.property(\"title\");",
+											"        pm.expect(product).to.have.property(\"price\");",
+											"        pm.expect(product).to.have.property(\"description\");",
+											"        pm.expect(product).to.have.property(\"category\", \"electronics\"); // Verificar que la categoría sea \"electronics\"",
+											"        pm.expect(product).to.have.property(\"image\");",
+											"        pm.expect(product).to.have.property(\"rating\");",
+											"    });",
+											"});",
+											"",
+											"// Validar que cada producto tenga un objeto de rating con rate y count",
+											"pm.test(\"Cada producto tiene rating válido (rate y count)\", function () {",
+											"    const jsonData = pm.response.json();",
+											"    jsonData.forEach(product => {",
+											"        pm.expect(product.rating).to.have.property(\"rate\");",
+											"        pm.expect(product.rating).to.have.property(\"count\");",
+											"    });",
+											"});",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": "https://fakestoreapi.com/products/category/electronics"
+							},
+							"response": []
+						},
+						{
+							"name": "TS2| 📜{API} | Productos | Consultar  los datos de un producto en específico”.",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Validar que el estado de la respuesta sea 200",
+											"pm.test(\"Estado de la respuesta es 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"// Validar que el producto tiene los campos obligatorios",
+											"pm.test(\"El producto tiene los campos obligatorios\", function () {",
+											"    const jsonData = pm.response.json();",
+											"    pm.expect(jsonData).to.have.property(\"id\", 7); // Validar que el ID sea 7",
+											"    pm.expect(jsonData).to.have.property(\"title\");",
+											"    pm.expect(jsonData).to.have.property(\"price\");",
+											"    pm.expect(jsonData).to.have.property(\"category\", \"jewelery\"); // Validar que la categoría sea \"jewelery\"",
+											"    pm.expect(jsonData).to.have.property(\"description\");",
+											"    pm.expect(jsonData).to.have.property(\"image\");",
+											"    pm.expect(jsonData).to.have.property(\"rating\");",
+											"    pm.expect(jsonData.rating).to.have.property(\"rate\");",
+											"    pm.expect(jsonData.rating).to.have.property(\"count\");",
+											"});",
+											"",
+											"// Validar que el campo de categoría sea \"jewelery\"",
+											"pm.test(\"La categoría es 'jewelery'\", function () {",
+											"    const jsonData = pm.response.json();",
+											"    pm.expect(jsonData.category).to.eql(\"jewelery\");",
+											"});",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://fakestoreapi.com/products/7"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "TS2 | 📜{API} | Crear un producto.",
+					"item": [
+						{
+							"name": "TS1 | 📜{API} | Productos | Crear un producto",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Validar que el estado de la respuesta sea 201 (creado)",
+											"pm.test(\"Estado de la respuesta es 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"// Validar que el cuerpo de la respuesta contenga los mismos datos enviados",
+											"pm.test(\"La respuesta contiene los datos correctos\", function () {",
+											"    const jsonData = pm.response.json();",
+											"    pm.expect(jsonData).to.have.property(\"id\", 21);",
+											"    pm.expect(jsonData).to.have.property(\"title\", \"Naruto y sakura\");",
+											"    pm.expect(jsonData).to.have.property(\"price\", 50);",
+											"    pm.expect(jsonData).to.have.property(\"category\", \"Un nino que nacio sin sus padres\");",
+											"    pm.expect(jsonData).to.have.property(\"image\", \"https://cl.pinterest.com/ninovariedades/naruto-uzumaki/\");",
+											"});",
+											"",
+											"// Validar que los campos sean los correctos",
+											"pm.test(\"Campos obligatorios están presentes\", function () {",
+											"    const jsonData = pm.response.json();",
+											"    pm.expect(jsonData).to.have.property(\"id\");",
+											"    pm.expect(jsonData).to.have.property(\"title\");",
+											"    pm.expect(jsonData).to.have.property(\"price\");",
+											"    pm.expect(jsonData).to.have.property(\"category\");",
+											"    pm.expect(jsonData).to.have.property(\"image\");",
+											"});",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 0,\n    \"title\": \"Naruto y sakura\",\n    \"price\":  50,\n    \"category\": \"Un nino que nacio sin sus padres\",\n    \"image\":\"https://cl.pinterest.com/ninovariedades/naruto-uzumaki/\"\n\n}\n\n            ",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://fakestoreapi.com/products"
+							},
+							"response": []
+						},
+						{
+							"name": "TS1 | 📜{API} | Productos | Actualizar la imagen de un producto",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Estado de la respuesta es 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"// Verificar que la imagen se haya actualizado correctamente",
+											"pm.test(\"La imagen se ha actualizado correctamente\", function () {",
+											"    const jsonData = pm.response.json();",
+											"    pm.expect(jsonData).to.have.property(\"image\", \"https://ar.pinterest.com/noeliamscorrea/dragon-ball/\");",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\n    \"image\":\"https://ar.pinterest.com/noeliamscorrea/dragon-ball/\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://fakestoreapi.com/products/21"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "TS2 | 📜{API} | Eliminar un producto.",
+					"item": [
+						{
+							"name": "TS1 | 📜{API} | Productos | Eliminar varios  productos",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Obtener los productos de la respuesta",
+											"let products = pm.response.json();",
+											"",
+											"// Iterar sobre todos los productos",
+											"products.forEach(product => {",
+											"    // Validar que el precio sea menor a 100",
+											"    if (product.price < 100) {",
+											"        // Enviar la solicitud DELETE para eliminar el producto",
+											"        pm.sendRequest({",
+											"            url: `https://fakestoreapi.com/products/${product.id}`,",
+											"            method: 'DELETE'",
+											"        }, function (err, res) {",
+											"            // Validar el estado de la respuesta DELETE",
+											"            pm.test(`Estado de la respuesta para eliminar el producto con id ${product.id} es 200`, function () {",
+											"                pm.expect(res).to.have.status(200);  // Verifica si el status es 200",
+											"            });",
+											"",
+											"            // Validar que el producto fue eliminado correctamente",
+											"            pm.test(`La respuesta de eliminar el producto con id ${product.id} contiene el estado correcto`, function () {",
+											"                const jsonData = res.json();",
+											"                pm.expect(jsonData).to.have.property(\"id\", product.id);",
+											"                pm.expect(jsonData).to.have.property(\"title\", product.title);",
+											"                pm.expect(jsonData).to.have.property(\"price\", product.price);",
+											"                pm.expect(jsonData).to.have.property(\"category\", product.category);",
+											"                pm.expect(jsonData).to.have.property(\"image\", product.image);",
+											"                ",
+											"            });",
+											"",
+											"        });",
+											"    }",
+											"});",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://fakestoreapi.com/products/"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
